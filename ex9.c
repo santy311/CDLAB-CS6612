@@ -6,6 +6,8 @@
 
 btree *create(char exp[80]);
 void dag(btree *root);
+void push(btree*);
+btree *pop();
 
 typedef struct node
 {
@@ -24,7 +26,7 @@ void main()
 
       printf("\nEnter the postfix expression:\n");
       scanf("%s",exp);
-      
+
       top=-1;
       root=create(exp);
       printf("\nThe tree is created.....\n");
@@ -36,12 +38,8 @@ btree *create(char exp[])
 {
     btree *temp;
 
-    int pos;
-    char ch;
-    void push(btree*);
-    btree *pop();
-    pos=0;
-    ch=exp[pos];
+    int pos=0;
+    char ch=exp[pos];
     while(ch!='\0')
     {
       temp=((btree*)malloc(sizeof(btree)));
